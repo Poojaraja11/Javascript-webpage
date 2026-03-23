@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nila Hotels - Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="form-page">
+  <div class="animated-bg"></div>
+  <div class="form-overlay">
+
+    <div class="form-container fade-in">
+      <h2>New User Registration</h2>
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Enter Name" required>
+        <input type="email" id="regEmail" placeholder="Enter Email" required>
+        <input type="password" id="regPassword" placeholder="Create Password" required>
+        <button type="submit" class="btn">Register</button>
+      </form>
+
+      <p id="registerMsg"></p>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+      <p><a href="index.html">Back to Home</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("regName").value;
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
+      const registerMsg = document.getElementById("registerMsg");
+
+      let users = JSON.parse(localStorage.getItem("nilaUsers")) || [];
+
+      const exists = users.find(user => user.email === email);
+
+      if (exists) {
+        registerMsg.style.color = "red";
+        registerMsg.innerText = "User already exists. Please login.";
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("nilaUsers", JSON.stringify(users));
+
+      registerMsg.style.color = "green";
+      registerMsg.innerText = "Registration successful! Now you can login.";
+      document.getElementById("registerForm").reset();
+    });
+  </script>
+</body>
+</html>

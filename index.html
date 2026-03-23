@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nila Hotels</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay-bg">
+
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <h2 class="logo">Nila Hotels</h2>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#availability">Availability</a></li>
+          <li><a href="#prebooking">Pre-Booking</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Welcome to Nila Hotels</h1>
+        <p>Luxury | Comfort | Elegant Stay</p>
+        <a href="#availability" class="btn">Check Rooms</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2>About Nila Hotels</h2>
+      <p>
+        Nila Hotels offers a peaceful and luxurious stay with modern rooms,
+        high-quality service, beautiful interiors, and a memorable experience
+        for every customer.
+      </p>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="section" id="rooms">
+      <h2>Our Rooms</h2>
+      <div class="room-container">
+
+        <div class="room-card">
+          <img src="images/room1.jpg" alt="Deluxe Room">
+          <h3>Deluxe Room</h3>
+          <p>Comfortable room with stylish interiors and premium facilities.</p>
+        </div>
+
+        <div class="room-card">
+          <img src="images/room2.jpg" alt="Executive Suite">
+          <h3>Executive Suite</h3>
+          <p>Spacious and elegant suite for a premium stay experience.</p>
+        </div>
+
+        <div class="room-card">
+          <img src="images/hall.jpg" alt="Conference Hall">
+          <h3>Conference Hall</h3>
+          <p>Ideal space for meetings, celebrations, and business events.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section class="section" id="availability">
+      <h2>Check Room Availability</h2>
+
+      <div class="availability-box">
+        <label for="checkDate">Select Date</label>
+        <input type="date" id="checkDate">
+
+        <label for="roomType">Select Room Type</label>
+        <select id="roomType">
+          <option value="Deluxe Room">Deluxe Room</option>
+          <option value="Executive Suite">Executive Suite</option>
+          <option value="Conference Hall">Conference Hall</option>
+        </select>
+
+        <button class="btn" onclick="checkAvailability()">Check Availability</button>
+
+        <div id="availabilityResult" class="result-box"></div>
+      </div>
+    </section>
+
+    <!-- Pre Booking Section -->
+    <section class="section" id="prebooking">
+      <h2>Pre-Booking</h2>
+
+      <form id="bookingForm" class="booking-form">
+        <input type="text" id="guestName" placeholder="Enter your name" required>
+        <input type="email" id="guestEmail" placeholder="Enter your email" required>
+        <input type="date" id="bookingDate" required>
+
+        <select id="bookingRoomType" required>
+          <option value="">Select Room Type</option>
+          <option value="Deluxe Room">Deluxe Room</option>
+          <option value="Executive Suite">Executive Suite</option>
+          <option value="Conference Hall">Conference Hall</option>
+        </select>
+
+        <button type="submit" class="btn">Pre-Book Now</button>
+      </form>
+
+      <p id="bookingMessage" class="success-msg"></p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+      <h2>Hotel Gallery</h2>
+      <div class="gallery">
+        <img src="images/garden.jpg" alt="Garden View">
+        <img src="images/lobby.jpg" alt="Lobby View">
+        <img src="images/hotel1.jpg" alt="Hotel Building">
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section location-section" id="location">
+      <h2>Hotel Location</h2>
+      <p><strong>Nila Hotels</strong></p>
+      <p>Thiruvanaikoil Road, Trichy, Tamil Nadu, India</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Email: info@nilahotels.com</p>
+
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps?q=Trichy,Tamil%20Nadu&output=embed"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Chat Button -->
+    <button class="chat-toggle" onclick="toggleChat()">Chat</button>
+
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+      <div class="chat-header">Nila Hotels Assistant</div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="bot-message">
+          Hello! Welcome to Nila Hotels. Ask me about rooms, booking, check-in, check-out, or location.
+        </div>
+      </div>
+
+      <div class="chat-input-box">
+        <input type="text" id="chatInput" placeholder="Type your question...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Nila Hotels. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

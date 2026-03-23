@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nila Hotels - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="form-page">
+  <div class="animated-bg"></div>
+  <div class="form-overlay">
+
+    <div class="form-container fade-in">
+      <h2>Old User Login</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Enter Email" required>
+        <input type="password" id="loginPassword" placeholder="Enter Password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <p id="loginMsg"></p>
+      <p>New user? <a href="register.html">Register here</a></p>
+      <p><a href="index.html">Back to Home</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      const users = JSON.parse(localStorage.getItem("nilaUsers")) || [];
+      const loginMsg = document.getElementById("loginMsg");
+
+      const userFound = users.find(user => user.email === email && user.password === password);
+
+      if (userFound) {
+        loginMsg.style.color = "green";
+        loginMsg.innerText = "Login successful! Welcome back to Nila Hotels.";
+      } else {
+        loginMsg.style.color = "red";
+        loginMsg.innerText = "Invalid email or password.";
+      }
+    });
+  </script>
+</body>
+</html>
